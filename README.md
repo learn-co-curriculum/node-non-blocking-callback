@@ -156,7 +156,7 @@ Lastly, the callback function is typically the last argument. It's another conve
 ## Resources
 
 1. [Callback Hell, where bad code goes to rest](http://callbackhell.com)
-2. [](http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference#1050257)
+2. [Concurrency vs. Parallelism](http://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference#1050257)
 3. [Avoiding Callback Hell in Node.js](http://stackabuse.com/avoiding-callback-hell-in-node-js)
 4. [Managing Node.js Callback Hell with Promises, Generators and Other Approaches](https://strongloop.com/strongblog/node-js-callback-hell-promises-generators)
 5. [Redemption from Callback Hell Video](https://www.youtube.com/watch?v=hf1T_AONQJU)
