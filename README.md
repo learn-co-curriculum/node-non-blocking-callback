@@ -48,7 +48,7 @@ fs.readdir(source, function (err, files) {
 }
 ```
 
-You might end up with something called pyramid of doom or callback hell. The code is very hard to read and maintain. People who have to work on this code after you might start to hate you!
+You might end up with something called nested approach, pyramid of doom or callback hell. The code is very hard to read and maintain. People who have to work on this code after you might start to hate you!
 
 Th `readdir` example is from <http://callbackhell.com> (yes, there is even a website for Callback Hell!).
 
@@ -148,9 +148,6 @@ So now your 5 co-workers will love you even more because each piece of logic wil
 ## Resources
 
 1. [Callback Hell, where bad code goes to rest](http://callbackhell.com)
-1. []()
-1. []()
-
 
 ---
 
