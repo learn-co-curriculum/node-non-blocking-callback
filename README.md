@@ -6,14 +6,14 @@ You might be familiar with callback from browser JavaScript. In a nutshell, they
 
 Let's say you have to implement three HTTP requests to a third-party service (like Facebook or Google), but they need to be performed in a sequential order, because the second and third request use information from the response of the first request (e.g., API token).  We can't delay code the way we do in traditional synchronous style, so you end up with nested callbacks to ensure the right order of execution. This is the pseudo code:
 
-```
+```js
 callOne({...}, function(error, data1) {
     callTwo(data1, function(error, data2) {
         callThree(data2, function(error, data3) {
         ...
         })
     })
-}) 
+})
 ```
 
 Remember, this is asynchronous world so we cannot type `callOne` then `callTwo` on a new line. We need to use callback and with callbacks (the way they are written in the example above) comes indentation.
@@ -57,7 +57,7 @@ This lesson will cover the ways to combat callback hell.
 ## Objectives
 
 1. Observe a callback hell script as a possible complication of the callback async pattern
-1. Comprehend possible ways to combat callback hell with named functions 
+1. Comprehend possible ways to combat callback hell with named functions
 1. Comprehend possible ways to combat callback hell with modules
 
 
@@ -73,7 +73,7 @@ function processResponse1(error, data1) {
 callOne({...}, processResponse1)
 ```
 
-or 
+or
 
 ```js
 var processResponse1 = function(error, data1) {
@@ -127,12 +127,12 @@ module.exports = function processResponse1(error, data1) {
 
 This is the `response2.js` file:
 
-```
+```js
 var processResponse3 = require('./response3.js')
 module.exports = function processResponse2(error, data2) {
   callThere(data2, processResponse3)
 }
-
+```
 
 This is the `response3.js` file:
 
@@ -147,9 +147,9 @@ So now your 5 co-workers will love you even more because each piece of logic wil
 
 ## Callback Arguments Convention
 
-Typically callbacks follow `error, result` convention where `error` is an error object (null is there's no errors) and `result` which is what you would expect from a function. This is a convention meaning libraries and interfaces don't have to follow it. That's why you must read the usage for each library before attempting to use it's methods. 
+Typically callbacks follow `error, result` convention where `error` is an error object (null is there's no errors) and `result` which is what you would expect from a function. This is a convention meaning libraries and interfaces don't have to follow it. That's why you must read the usage for each library before attempting to use it's methods.
 
-The names which you use in the callbacks for arguments such as `error` or `result` don't really matter. The best practice is to make them meaningful and spell out completely to avoid confusion (`error` is better to read than `err` or `e` which might mean an event, not an error to other developers working on this code). What matters in the callback declarations is **order** of arguments. 
+The names which you use in the callbacks for arguments such as `error` or `result` don't really matter. The best practice is to make them meaningful and spell out completely to avoid confusion (`error` is better to read than `err` or `e` which might mean an event, not an error to other developers working on this code). What matters in the callback declarations is **order** of arguments.
 
 Lastly, the callback function is typically the last argument. It's another convention meaning it's not enforced by the Node platform in anyway. It's just the best practice which most Node developers follow. Again, you will often see different names for callbacks such as `cb`, `done`, `next`, `end`, and our favorite `callback` (because it's easier to read and understand).
 
